@@ -75,4 +75,7 @@
       <Filter>Additional Network Transport Files\TCP Sockets Wrapper\include</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="output.txt" />
+  </ItemGroup>
 </Project>

@@ -95,6 +95,7 @@
 #endif
 
 /* Check that a request body to send for the POST request is defined. */
+#define democonfigREQUEST_BODY      "This is a request body for the POST request."
 #ifndef democonfigREQUEST_BODY
     #error "Please define a democonfigREQUEST_BODY in demo_config.h."
 #endif
@@ -306,16 +307,16 @@ static void prvHTTPDemoTask( void * pvParameters )
     const httpPathStrings_t xHttpMethodPaths[] =
     {
         { democonfigGET_PATH,  httpexampleGET_PATH_LENGTH  },
-        { democonfigHEAD_PATH, httpexampleHEAD_PATH_LENGTH },
-        { democonfigPUT_PATH,  httpexamplePUT_PATH_LENGTH  },
+        { democonfigHEAD_PATH, httpexampleHEAD_PATH_LENGTH }, /*HEAD is removed for test purpose*/
+        { democonfigPUT_PATH,  httpexamplePUT_PATH_LENGTH  },  /*PUT is removed for test purpose*/
         { democonfigPOST_PATH, httpexamplePOST_PATH_LENGTH }
     };
     /* The respective method for the HTTP paths listed in #httpMethodPaths. */
     const httpMethodStrings_t xHttpMethods[] =
     {
         { HTTP_METHOD_GET,  httpexampleHTTP_METHOD_GET_LENGTH  },
-        { HTTP_METHOD_HEAD, httpexampleHTTP_METHOD_HEAD_LENGTH },
-        { HTTP_METHOD_PUT,  httpexampleHTTP_METHOD_PUT_LENGTH  },
+        { HTTP_METHOD_HEAD, httpexampleHTTP_METHOD_HEAD_LENGTH }, /*HEAD is removed for test purpose*/
+        { HTTP_METHOD_PUT,  httpexampleHTTP_METHOD_PUT_LENGTH  },  /*PUT is removed for test purpose*/
         { HTTP_METHOD_POST, httpexampleHTTP_METHOD_POST_LENGTH }
     };
     BaseType_t xIsConnectionEstablished = pdFALSE;
@@ -527,23 +528,51 @@ static BaseType_t prvSendHttpRequest( const TransportInterface_t * pxTransportIn
         xResponse.pBuffer = ucUserBuffer;
         xResponse.bufferLen = democonfigUSER_BUFFER_LENGTH;
 
-        LogInfo( ( "Sending HTTP %.*s request to %.*s%.*s...",
-                   ( int32_t ) xRequestInfo.methodLen, xRequestInfo.pMethod,
-                   ( int32_t ) httpexampleSERVER_HOSTNAME_LENGTH, democonfigSERVER_HOSTNAME,
-                   ( int32_t ) xRequestInfo.pathLen, xRequestInfo.pPath ) );
-        LogInfo( ( "Request Headers:\n%.*s\n"
-                   "Request Body:\n%.*s\n",
-                   ( int32_t ) xRequestHeaders.headersLen,
-                   ( char * ) xRequestHeaders.pBuffer,
-                   ( int32_t ) httpexampleREQUEST_BODY_LENGTH, democonfigREQUEST_BODY ) );
-
-        /* Send the request and receive the response. */
-        xHTTPStatus = HTTPClient_Send( pxTransportInterface,
-                                       &xRequestHeaders,
-                                       ( uint8_t * ) democonfigREQUEST_BODY,
-                                       httpexampleREQUEST_BODY_LENGTH,
-                                       &xResponse,
-                                       0 );
+        if (xRequestInfo.pMethod == HTTP_METHOD_HEAD)
+        {
+            LogInfo(("Sending HTTP %.*s request to %.*s%.*s...",
+                (int32_t)xRequestInfo.methodLen, xRequestInfo.pMethod,
+                (int32_t)httpexampleSERVER_HOSTNAME_LENGTH, democonfigSERVER_HOSTNAME,
+                (int32_t)xRequestInfo.pathLen, xRequestInfo.pPath));
+            LogInfo(("Request Headers:\n%.*s\n"
+                "Request Body:\n%.*s\n",
+                (int32_t)xRequestHeaders.headersLen,
+                (char*)xRequestHeaders.pBuffer,
+                0, NULL));
+        }
+        else
+        {
+            LogInfo(("Sending HTTP %.*s request to %.*s%.*s...",
+                (int32_t)xRequestInfo.methodLen, xRequestInfo.pMethod,
+                (int32_t)httpexampleSERVER_HOSTNAME_LENGTH, democonfigSERVER_HOSTNAME,
+                (int32_t)xRequestInfo.pathLen, xRequestInfo.pPath));
+            LogInfo(("Request Headers:\n%.*s\n"
+                "Request Body:\n%.*s\n",
+                (int32_t)xRequestHeaders.headersLen,
+                (char*)xRequestHeaders.pBuffer,
+                (int32_t)httpexampleREQUEST_BODY_LENGTH, democonfigREQUEST_BODY));
+        }
+        
+        /*Quick fix: for HEAD method, the request body should be NULL and length be 0*/
+        if(xRequestInfo.pMethod == HTTP_METHOD_HEAD)
+        {
+            xHTTPStatus = HTTPClient_Send( pxTransportInterface,
+                                           &xRequestHeaders,
+                                           NULL, /* No request body for HEAD method. */
+                                           0,    /* Length of request body is 0. */
+                                           &xResponse,
+                                           0 );
+        }
+        else
+        {
+            /* Send the request with the request body and receive the response */
+            xHTTPStatus = HTTPClient_Send( pxTransportInterface,
+                                           &xRequestHeaders,
+                                           ( uint8_t * ) democonfigREQUEST_BODY,
+                                           httpexampleREQUEST_BODY_LENGTH,
+                                           &xResponse,
+                                           0 );
+        }
     }
     else
     {

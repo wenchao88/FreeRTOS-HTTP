@@ -71,16 +71,23 @@
 /*------------- Demo configurations -------------------------*/
 
 /* Check that the root CA certificate is defined. */
+#define democonfigROOT_CA_PEM    "-----BEGIN CERTIFICATE-----\n" \
+                            "YOUR_ROOT_CA_CERTIFICATE_HERE\n" \
+                            "-----END CERTIFICATE-----\n"
 #ifndef democonfigROOT_CA_PEM
     #error "Please define democonfigROOT_CA_PEM in demo_config.h."
 #endif
 
 /* Check that the pre-signed GET URL is defined. */
+#define democonfigS3_PRESIGNED_GET_URL    "https://your-bucket.s3.amazonaws.com/your-object?AWSAccessKey \
+                            =YOUR_ACCESS_KEY&Signature=YOUR_SIGNATURE&Expires=YOUR_EXPIRATION_TIME"
 #ifndef democonfigS3_PRESIGNED_GET_URL
     #error "Please define democonfigS3_PRESIGNED_GET_URL in demo_config.h."
 #endif
 
 /* Check that the pre-signed PUT URL is defined. */
+#define democonfigS3_PRESIGNED_PUT_URL    "https://your-bucket.s3.amazonaws.com/your-object?AWSAccessKey \
+                            =YOUR_ACCESS_KEY&Signature=YOUR_SIGNATURE&Expires=YOUR_EXPIRATION_TIME"
 #ifndef democonfigS3_PRESIGNED_PUT_URL
     #error "Please define democonfigS3_PRESIGNED_PUT_URL in demo_config.h."
 #endif

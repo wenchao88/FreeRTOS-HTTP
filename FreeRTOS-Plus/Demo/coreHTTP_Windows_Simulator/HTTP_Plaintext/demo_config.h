@@ -75,8 +75,15 @@ extern void vLoggingPrintf( const char * pcFormatString,
  * An httpbin server can be setup locally for running this demo against
  * it. Please refer to the instructions in the README to do so.
  *
- * #define democonfigSERVER_HOSTNAME    "...insert here..."
+ * 
  */
+#ifndef democonfigHTTP_HOST
+    #define democonfigHTTP_HOST    "httpbin.org"
+#endif
+
+#ifndef democonfigSERVER_HOSTNAME
+    #define democonfigSERVER_HOSTNAME    democonfigHTTP_HOST
+#endif
 
 /**
  * @brief HTTP server port number.
