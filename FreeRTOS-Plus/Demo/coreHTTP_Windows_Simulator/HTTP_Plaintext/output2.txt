@@ -1,0 +1,148 @@
+0 0 [None] FreeRTOS_AddEndPoint: MAC: c6-84 IPv4: 192.168.0.110
+
+
+The following network interfaces are available:
+
+Interface 1 - rpcap://\Device\NPF_{59F9F319-1357-47BE-A77A-2AEADE414D77}
+              (Network adapter 'WAN Miniport (Network Monitor)' on local host)
+
+Interface 2 - rpcap://\Device\NPF_{D5179288-FF3F-4E59-B205-090C3AAFD72E}
+              (Network adapter 'WAN Miniport (IPv6)' on local host)
+
+Interface 3 - rpcap://\Device\NPF_{28945210-19FD-4655-A0E6-7E876E5C8C43}
+              (Network adapter 'WAN Miniport (IP)' on local host)
+
+Interface 4 - rpcap://\Device\NPF_{3C77D257-0446-411C-ADC4-34420987A4CD}
+              (Network adapter 'Hyper-V Virtual Ethernet Adapter' on local host)
+
+Interface 5 - rpcap://\Device\NPF_{34AE1259-67C1-472F-A21D-92F4D559038C}
+              (Network adapter 'Bluetooth Device (Personal Area Network)' on local host)
+
+Interface 6 - rpcap://\Device\NPF_{E01073FB-C05C-4836-A3B6-A728776CA5B4}
+              (Network adapter 'Intel(R) Wi-Fi 6E AX211 160MHz' on local host)
+
+Interface 7 - rpcap://\Device\NPF_{23DDDB7A-57BD-493A-9D2F-7B7195E64A05}
+              (Network adapter 'Microsoft Wi-Fi Direct Virtual Adapter #2' on local host)
+
+Interface 8 - rpcap://\Device\NPF_{88E5B8EC-B529-4D48-A1B8-2E83DA407515}
+              (Network adapter 'Microsoft Wi-Fi Direct Virtual Adapter' on local host)
+
+Interface 9 - rpcap://\Device\NPF_Loopback
+              (Network adapter 'Adapter for loopback traffic capture' on local host)
+
+Interface 10 - rpcap://\Device\NPF_{FBBC449C-6AF4-45E0-891A-24D0DA121CDC}
+              (Network adapter 'Realtek Gaming 2.5GbE Family Controller' on local host)
+
+
+The interface that will be opened is set by "configNETWORK_INTERFACE_TO_USE", which
+should be defined in FreeRTOSConfig.h
+Attempting to open interface number 6.
+Successfully opened interface number 6.
+
+
+IP Address: 192.168.0.110
+1 11 [IP-Task] Subnet Mask: 255.255.255.0
+2 11 [IP-Task] Gateway Address: 192.168.0.1
+3 11 [IP-Task] DNS Server Address: 208.67.222.222
+
+
+4 11 [DemoTask] [INFO] [HTTPDemo] [prvHTTPDemoTask:340] ---------STARTING DEMO---------
+
+5 11 [DemoTask] [INFO] [HTTPDemo] [prvConnectToServer:460] Establishing a TCP connection to localhost:80.
+6 13 [DemoTask] Can not find a DNS address, along with an end-point.
+Can not find a DNS address, along with an end-point.
+[ERROR] [SocketsWrapper] [TCP_Sockets_Connect:134] Failed to connect to server: DNS resolution failed: Hostname=localhost.
+7 14 [DemoTask] [ERROR] [PlaintextTransport] [Plaintext_FreeRTOS_Connect:90] Failed to connect to localhost with error -1.
+8 14 [DemoTask] [WARN] [HTTP] [connectToServerWithBackoffRetries:121] Connection to the HTTP server failed. Retrying connection with backoff and jitter.
+9 14 [DemoTask] [INFO] [HTTP] [connectToServerWithBackoffRetries:124] Retry attempt 1 out of maximum retry attempts 5.
+10 14 [DemoTask] [INFO] [HTTPDemo] [prvConnectToServer:460] Establishing a TCP connection to localhost:80.
+11 14 [DemoTask] Can not find a DNS address, along with an end-point.
+Can not find a DNS address, along with an end-point.
+[ERROR] [SocketsWrapper] [TCP_Sockets_Connect:134] Failed to connect to server: DNS resolution failed: Hostname=localhost.
+12 14 [DemoTask] [ERROR] [PlaintextTransport] [Plaintext_FreeRTOS_Connect:90] Failed to connect to localhost with error -1.
+13 14 [DemoTask] [WARN] [HTTP] [connectToServerWithBackoffRetries:121] Connection to the HTTP server failed. Retrying connection with backoff and jitter.
+14 14 [DemoTask] [INFO] [HTTP] [connectToServerWithBackoffRetries:124] Retry attempt 2 out of maximum retry attempts 5.
+15 15 [DemoTask] [INFO] [HTTPDemo] [prvConnectToServer:460] Establishing a TCP connection to localhost:80.
+16 15 [DemoTask] Can not find a DNS address, along with an end-point.
+Can not find a DNS address, along with an end-point.
+[ERROR] [SocketsWrapper] [TCP_Sockets_Connect:134] Failed to connect to server: DNS resolution failed: Hostname=localhost.
+17 15 [DemoTask] [ERROR] [PlaintextTransport] [Plaintext_FreeRTOS_Connect:90] Failed to connect to localhost with error -1.
+18 15 [DemoTask] [WARN] [HTTP] [connectToServerWithBackoffRetries:121] Connection to the HTTP server failed. Retrying connection with backoff and jitter.
+19 15 [DemoTask] [INFO] [HTTP] [connectToServerWithBackoffRetries:124] Retry attempt 3 out of maximum retry attempts 5.
+20 15 [DemoTask] [INFO] [HTTPDemo] [prvConnectToServer:460] Establishing a TCP connection to localhost:80.
+21 15 [DemoTask] Can not find a DNS address, along with an end-point.
+Can not find a DNS address, along with an end-point.
+[ERROR] [SocketsWrapper] [TCP_Sockets_Connect:134] Failed to connect to server: DNS resolution failed: Hostname=localhost.
+22 15 [DemoTask] [ERROR] [PlaintextTransport] [Plaintext_FreeRTOS_Connect:90] Failed to connect to localhost with error -1.
+23 16 [DemoTask] [WARN] [HTTP] [connectToServerWithBackoffRetries:121] Connection to the HTTP server failed. Retrying connection with backoff and jitter.
+24 16 [DemoTask] [INFO] [HTTP] [connectToServerWithBackoffRetries:124] Retry attempt 4 out of maximum retry attempts 5.
+25 16 [DemoTask] [INFO] [HTTPDemo] [prvConnectToServer:460] Establishing a TCP connection to localhost:80.
+26 16 [DemoTask] Can not find a DNS address, along with an end-point.
+Can not find a DNS address, along with an end-point.
+[ERROR] [SocketsWrapper] [TCP_Sockets_Connect:134] Failed to connect to server: DNS resolution failed: Hostname=localhost.
+27 16 [DemoTask] [ERROR] [PlaintextTransport] [Plaintext_FreeRTOS_Connect:90] Failed to connect to localhost with error -1.
+28 16 [DemoTask] [WARN] [HTTP] [connectToServerWithBackoffRetries:121] Connection to the HTTP server failed. Retrying connection with backoff and jitter.
+29 16 [DemoTask] [INFO] [HTTP] [connectToServerWithBackoffRetries:124] Retry attempt 5 out of maximum retry attempts 5.
+30 16 [DemoTask] [INFO] [HTTPDemo] [prvConnectToServer:460] Establishing a TCP connection to localhost:80.
+31 16 [DemoTask] Can not find a DNS address, along with an end-point.
+Can not find a DNS address, along with an end-point.
+[ERROR] [SocketsWrapper] [TCP_Sockets_Connect:134] Failed to connect to server: DNS resolution failed: Hostname=localhost.
+32 17 [DemoTask] [ERROR] [PlaintextTransport] [Plaintext_FreeRTOS_Connect:90] Failed to connect to localhost with error -1.
+33 17 [DemoTask] [ERROR] [HTTP] [connectToServerWithBackoffRetries:131] Connection to the server failed, all attempts exhausted.
+34 17 [DemoTask] [ERROR] [HTTPDemo] [prvHTTPDemoTask:379] Failed to connect to HTTP server localhost.
+35 17 [DemoTask] [WARN] [HTTPDemo] [prvHTTPDemoTask:422] Demo iteration 1 failed. Retrying...
+36 611 [MAC_ISR] Bounced back by WinPCAP interface: e4:1f:d5:2d:c6:84
+[INFO] [HTTPDemo] [prvHTTPDemoTask:340] ---------STARTING DEMO---------
+
+37 5017 [DemoTask] [INFO] [HTTPDemo] [prvConnectToServer:460] Establishing a TCP connection to localhost:80.
+38 5017 [DemoTask] Can not find a DNS address, along with an end-point.
+Can not find a DNS address, along with an end-point.
+[ERROR] [SocketsWrapper] [TCP_Sockets_Connect:134] Failed to connect to server: DNS resolution failed: Hostname=localhost.
+39 5017 [DemoTask] [ERROR] [PlaintextTransport] [Plaintext_FreeRTOS_Connect:90] Failed to connect to localhost with error -1.
+40 5017 [DemoTask] [WARN] [HTTP] [connectToServerWithBackoffRetries:121] Connection to the HTTP server failed. Retrying connection with backoff and jitter.
+41 5017 [DemoTask] [INFO] [HTTP] [connectToServerWithBackoffRetries:124] Retry attempt 1 out of maximum retry attempts 5.
+42 5018 [DemoTask] [INFO] [HTTPDemo] [prvConnectToServer:460] Establishing a TCP connection to localhost:80.
+43 5018 [DemoTask] Can not find a DNS address, along with an end-point.
+Can not find a DNS address, along with an end-point.
+[ERROR] [SocketsWrapper] [TCP_Sockets_Connect:134] Failed to connect to server: DNS resolution failed: Hostname=localhost.
+44 5018 [DemoTask] [ERROR] [PlaintextTransport] [Plaintext_FreeRTOS_Connect:90] Failed to connect to localhost with error -1.
+45 5018 [DemoTask] [WARN] [HTTP] [connectToServerWithBackoffRetries:121] Connection to the HTTP server failed. Retrying connection with backoff and jitter.
+46 5018 [DemoTask] [INFO] [HTTP] [connectToServerWithBackoffRetries:124] Retry attempt 2 out of maximum retry attempts 5.
+47 5018 [DemoTask] [INFO] [HTTPDemo] [prvConnectToServer:460] Establishing a TCP connection to localhost:80.
+48 5018 [DemoTask] Can not find a DNS address, along with an end-point.
+Can not find a DNS address, along with an end-point.
+[ERROR] [SocketsWrapper] [TCP_Sockets_Connect:134] Failed to connect to server: DNS resolution failed: Hostname=localhost.
+49 5019 [DemoTask] [ERROR] [PlaintextTransport] [Plaintext_FreeRTOS_Connect:90] Failed to connect to localhost with error -1.
+50 5019 [DemoTask] [WARN] [HTTP] [connectToServerWithBackoffRetries:121] Connection to the HTTP server failed. Retrying connection with backoff and jitter.
+51 5019 [DemoTask] [INFO] [HTTP] [connectToServerWithBackoffRetries:124] Retry attempt 3 out of maximum retry attempts 5.
+52 5019 [DemoTask] [INFO] [HTTPDemo] [prvConnectToServer:460] Establishing a TCP connection to localhost:80.
+53 5019 [DemoTask] Can not find a DNS address, along with an end-point.
+Can not find a DNS address, along with an end-point.
+[ERROR] [SocketsWrapper] [TCP_Sockets_Connect:134] Failed to connect to server: DNS resolution failed: Hostname=localhost.
+54 5020 [DemoTask] [ERROR] [PlaintextTransport] [Plaintext_FreeRTOS_Connect:90] Failed to connect to localhost with error -1.
+55 5020 [DemoTask] [WARN] [HTTP] [connectToServerWithBackoffRetries:121] Connection to the HTTP server failed. Retrying connection with backoff and jitter.
+56 5020 [DemoTask] [INFO] [HTTP] [connectToServerWithBackoffRetries:124] Retry attempt 4 out of maximum retry attempts 5.
+57 5020 [DemoTask] [INFO] [HTTPDemo] [prvConnectToServer:460] Establishing a TCP connection to localhost:80.
+58 5020 [DemoTask] Can not find a DNS address, along with an end-point.
+Can not find a DNS address, along with an end-point.
+[ERROR] [SocketsWrapper] [TCP_Sockets_Connect:134] Failed to connect to server: DNS resolution failed: Hostname=localhost.
+59 5020 [DemoTask] [ERROR] [PlaintextTransport] [Plaintext_FreeRTOS_Connect:90] Failed to connect to localhost with error -1.
+60 5020 [DemoTask] [WARN] [HTTP] [connectToServerWithBackoffRetries:121] Connection to the HTTP server failed. Retrying connection with backoff and jitter.
+61 5020 [DemoTask] [INFO] [HTTP] [connectToServerWithBackoffRetries:124] Retry attempt 5 out of maximum retry attempts 5.
+62 5020 [DemoTask] [INFO] [HTTPDemo] [prvConnectToServer:460] Establishing a TCP connection to localhost:80.
+63 5021 [DemoTask] Can not find a DNS address, along with an end-point.
+Can not find a DNS address, along with an end-point.
+[ERROR] [SocketsWrapper] [TCP_Sockets_Connect:134] Failed to connect to server: DNS resolution failed: Hostname=localhost.
+64 5021 [DemoTask] [ERROR] [PlaintextTransport] [Plaintext_FreeRTOS_Connect:90] Failed to connect to localhost with error -1.
+65 5021 [DemoTask] [ERROR] [HTTP] [connectToServerWithBackoffRetries:131] Connection to the server failed, all attempts exhausted.
+66 5021 [DemoTask] [ERROR] [HTTPDemo] [prvHTTPDemoTask:379] Failed to connect to HTTP server localhost.
+67 5021 [DemoTask] [WARN] [HTTPDemo] [prvHTTPDemoTask:422] Demo iteration 2 failed. Retrying...
+68 8971 [MAC_ISR] Network interface: dropped packet
+Network interface: dropped packet
+Network interface: dropped packet
+Network interface: dropped packet
+Network interface: dropped packet
+Network interface: dropped packet
+Network interface: dropped packet
+Network interface: dropped packet
+Network interface: dropped packet

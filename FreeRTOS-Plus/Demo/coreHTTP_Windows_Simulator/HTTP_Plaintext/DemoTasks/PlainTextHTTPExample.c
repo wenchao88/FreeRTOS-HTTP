@@ -232,6 +232,7 @@ static uint8_t ucUserBuffer[ democonfigUSER_BUFFER_LENGTH ];
 static void prvHTTPDemoTask( void * pvParameters );
 
 
+
 /**
  * @brief Connect to HTTP server with reconnection retries.
  *
@@ -283,6 +284,8 @@ void vStartSimpleHTTPDemo( void )
 }
 
 /*-----------------------------------------------------------*/
+
+
 
 /**
  * @brief Entry point of the demo.
@@ -556,12 +559,19 @@ static BaseType_t prvSendHttpRequest( const TransportInterface_t * pxTransportIn
         /*Quick fix: for HEAD method, the request body should be NULL and length be 0*/
         if(xRequestInfo.pMethod == HTTP_METHOD_HEAD)
         {
-            xHTTPStatus = HTTPClient_Send( pxTransportInterface,
-                                           &xRequestHeaders,
-                                           NULL, /* No request body for HEAD method. */
-                                           0,    /* Length of request body is 0. */
-                                           &xResponse,
-                                           0 );
+            //xHTTPStatus = HTTPClient_Send( pxTransportInterface,
+            //                               &xRequestHeaders,
+            //                               NULL, /* No request body for HEAD method. */
+            //                               0,    /* Length of request body is 0. */
+            //                               &xResponse,
+            //                               0 );
+            /* Send the request with the request body and receive the response */
+            xHTTPStatus = HTTPClient_Send(  pxTransportInterface,
+                                            &xRequestHeaders,
+                                            (uint8_t*)democonfigREQUEST_BODY,
+                                            httpexampleREQUEST_BODY_LENGTH,
+                                            &xResponse,
+                                            0);
         }
         else
         {

@@ -78,7 +78,7 @@ extern void vLoggingPrintf( const char * pcFormatString,
  * 
  */
 #ifndef democonfigHTTP_HOST
-    #define democonfigHTTP_HOST    "httpbin.org"
+    #define democonfigHTTP_HOST    "192.168.0.103"    // httpbin.org, 172-31-19-227 (cloud), 192.168.0.110 (local), 192.168.0.103 (laptop)
 #endif
 
 #ifndef democonfigSERVER_HOSTNAME
@@ -91,7 +91,7 @@ extern void vLoggingPrintf( const char * pcFormatString,
  * @note In general, port 80 is for plaintext HTTP connections.
  */
 #ifndef democonfigHTTP_PORT
-    #define democonfigHTTP_PORT    ( 80 )
+    #define democonfigHTTP_PORT    ( 5000 )
 #endif
 
 /**

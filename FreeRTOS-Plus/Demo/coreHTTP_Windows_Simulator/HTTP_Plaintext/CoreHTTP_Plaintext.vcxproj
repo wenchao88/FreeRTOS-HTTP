@@ -52,7 +52,7 @@
     <ClCompile Include="..\..\..\Source\Utilities\backoff_algorithm\source\backoff_algorithm.c" />
     <ClCompile Include="..\Common\http_demo_utils.c" />
     <ClCompile Include="..\Common\main.c" />
-    <ClCompile Include="DemoTasks\PlainTextHTTPExample.c" />
+    <ClCompile Include="PeriodicHTTP.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Source\Application-Protocols\network_transport\tcp_sockets_wrapper\include\tcp_sockets_wrapper.h" />
@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="output.txt" />
+    <Text Include="output2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

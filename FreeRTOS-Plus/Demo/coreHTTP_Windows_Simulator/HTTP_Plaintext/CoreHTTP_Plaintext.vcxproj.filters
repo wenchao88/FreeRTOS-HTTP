@@ -48,14 +48,14 @@
     <ClCompile Include="..\Common\http_demo_utils.c">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="DemoTasks\PlainTextHTTPExample.c">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\Source\Application-Protocols\network_transport\transport_plaintext.c">
       <Filter>Additional Network Transport Files\TCP Sockets Wrapper + Plaintext Transport</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\Source\Application-Protocols\network_transport\tcp_sockets_wrapper\ports\freertos_plus_tcp\tcp_sockets_wrapper.c">
       <Filter>Additional Network Transport Files\TCP Sockets Wrapper\ports\freertos_plus_tcp</Filter>
+    </ClCompile>
+    <ClCompile Include="PeriodicHTTP.c">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,5 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="output.txt" />
+    <Text Include="output2.txt" />
   </ItemGroup>
 </Project>
